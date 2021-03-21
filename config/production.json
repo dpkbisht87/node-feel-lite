@@ -1,5 +1,4 @@
 {
     "jwtPrivateKey": "feel_lite_jwtPrivateKey",
-    "db": "feel_lite_db"
-
+    "db" : "feel_lite_db"
 }
