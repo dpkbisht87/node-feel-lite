@@ -1,3 +1,4 @@
+const config = require('config');
 const winston = require('winston');
 require('winston-mongodb');
 
@@ -12,7 +13,7 @@ module.exports = function () {
 
     winston.add(new winston.transports.File({ filename: 'logfile.log', level: "error" }));
     winston.add(new winston.transports.MongoDB({
-        db: 'mongodb://localhost/feel-lite',
+        db: config.get('db'),
         level: 'error'
     }));
 }
