@@ -44,7 +44,7 @@ storyRouter.post('/', auth, async (req, res) => {
 })
 
 //UPDATE EXISTING STORY
-storyRouter.put('/:id', async (req, res) => {
+storyRouter.put('/:id', auth, async (req, res) => {
     const { error } = validateStory(req.body);
     if (error) return res.status(400).send(error.message);
 
@@ -55,7 +55,7 @@ storyRouter.put('/:id', async (req, res) => {
 })
 
 //INCREMENT STORY REACTION
-storyRouter.put('/reaction/:id', async (req, res) => {
+storyRouter.put('/reaction/:id', auth, async (req, res) => {
     const { error } = validateReaction(req.body);
     if (error) return res.status(400).send(error.message);
 
@@ -67,7 +67,7 @@ storyRouter.put('/reaction/:id', async (req, res) => {
 })
 
 //DELETE STORY
-storyRouter.delete('/:id', async (req, res) => {
+storyRouter.delete('/:id', auth, async (req, res) => {
     let story = await Story.deleteOne({ _id: req.params.id });
     if (!story) return res.status(404).send('Story does not exist.')
 
