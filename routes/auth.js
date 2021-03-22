@@ -4,7 +4,7 @@ const express = require('express');
 const passwordComplexity = require("joi-password-complexity");
 const { User } = require('../model/user');
 
-const authRouter = express.Router()
+const authRouter = express.Router();
 
 authRouter.post('/', async (req, res) => {
     const { error } = validate(req.body);
